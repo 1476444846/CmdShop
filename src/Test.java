@@ -1,32 +1,38 @@
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class Test {
-    public static void main(String[] args) {
-         /*
-    开始读取文件
-    */
-        File file=new File("D:\\CmdShop\\src\\users.xlsx");
-        ReadExcel readExcel=new ReadExcel();
-        User users[]=readExcel.readExcel(file);
+    public static void main(String[] args) throws ClassNotFoundException {
 
         System.out.println("请输入用户名");
 
         Scanner sc = new Scanner(System.in);
         String username = sc.next();
+        System.out.println("刚刚输入的用户名:" + username);
 
         System.out.println("请输入密码");
         String password = sc.next();
-        //System.out.println("刚刚输入的用户名:" + username);//用于检测输入的用户名是否正确
+        System.out.println("刚刚输入密码是:" + password);//用于检测输入的用户名是否正确
 
+            /*
+    开始读取文件
+    */
+        //File file = new File("D:\\CmdShop\\src\\users.xlsx");
+        InputStream in = Class.forName("Test").getResourceAsStream("users.xlsx");//此方法能返回一个输入流，满足ReadExcel要求的输入流
+        ReadExcel readExcel = new ReadExcel();
+        User users[] = readExcel.readExcel(in);
 
         System.out.println(users.length);
-        for(User user:users){
-            if(username.equals(user.getUsername()) && password.equals(user.getPassword()))
-            System.out.println("登录成功");
-            System.out.println("\t"+user.getPassword());
+        for (User user : users) {
+            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                System.out.println("登录成功");
+                break;
+            } else {
+                System.out.println("登陆失败");
+            }
         }
     }
 }
