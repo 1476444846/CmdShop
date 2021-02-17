@@ -1,6 +1,3 @@
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
-import java.io.File;
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -23,7 +20,7 @@ public class Test {
     */
             //File file = new File("D:\\CmdShop\\src\\users.xlsx");
             InputStream in = Class.forName("Test").getResourceAsStream("users.xlsx");//此方法能返回一个输入流，满足ReadExcel要求的输入流
-            ReadExcel readExcel = new ReadExcel();
+            ReadUserExcel readExcel = new ReadUserExcel();
             User users[] = readExcel.readExcel(in);
 
             System.out.println(users.length);
