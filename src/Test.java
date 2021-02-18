@@ -19,12 +19,12 @@ public class Test {
     开始读取文件
     */
             //File file = new File("D:\\CmdShop\\src\\users.xlsx");
-            InputStream in = Class.forName("Test").getResourceAsStream("users.xlsx");//此方法能返回一个输入流，满足ReadExcel要求的输入流
-            ReadUserExcel readExcel = new ReadUserExcel();
-            User users[] = readExcel.readExcel(in);
+            InputStream in = Class.forName("Test").getResourceAsStream("Product.xlsx");//此方法能返回一个输入流，满足ReadExcel要求的输入流
+            ReadProductExcel readExcel = new ReadProductExcel();
+            Product Products[] = readExcel.readExcel(in);
 
-            System.out.println(users.length);
-            for (User user : users) {
+            System.out.println(Products.length);
+            for (Product Product : Products) {
                 if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                     System.out.println("登录成功");
                     bo=false;
