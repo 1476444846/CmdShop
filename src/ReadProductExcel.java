@@ -62,9 +62,9 @@ public class ReadProductExcel {
                         product.setDesc(this.getValue(cell));//给desc属性赋值
                     }
                 }
-               if(id.equals(product.getId())){
-                   return product;
-               }
+                if(id.equals(product.getId())){
+                    return product;
+                }
             }
 
         } catch (IOException e) {
