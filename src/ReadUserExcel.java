@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class ReadExcel {
+public class ReadUserExcel {
     public User[] readExcel(InputStream in) {
         User users[] = null;
         try {
@@ -46,7 +46,7 @@ public class ReadExcel {
 
     private String getValue(XSSFCell cell) {
         String value;
-        CellType type = cell.getCellTypeEnum();
+        CellType type = cell.getCellType();
         DecimalFormat df = new DecimalFormat("#");
 
         switch (type) {
@@ -61,7 +61,7 @@ public class ReadExcel {
                 break;
             case NUMERIC:
                 value = df.format(cell.getNumericCellValue());//double和一个字符串相连接，最终得到字符串
-                System.out.println("转换后的:" + value);
+                //System.out.println("转换后的:" + value);
                 break;
             case FORMULA:
                 value = cell.getCellFormula();
