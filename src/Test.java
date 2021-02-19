@@ -46,11 +46,11 @@ public class Test {
                             shopping(inProduct);
                         }
                         else if(choose==2){
-                            /*
-                        查看购物车
-                         */
-                            viewCarts();
-                        }else if(choose==4){
+                            viewCarts();//查看购物车
+                        }
+                        else if(choose==3){
+                        }
+                        else if(choose==4){
                             break;//退出while(true)
                             //System.exit(0);
                         }
